@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bibliotheque-api
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn bibliotheque_project.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: PYTHON_VERSION
+        value: 3.11.0
